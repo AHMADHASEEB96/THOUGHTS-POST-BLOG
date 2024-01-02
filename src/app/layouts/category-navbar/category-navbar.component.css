@@ -1,0 +1,12 @@
+nav {
+    /* margin-top: 100px; */ /* same space as the height of the fixed header */
+    height : 50px;
+    background-color : var(--navbar-footer-color);
+       position: sticky;
+    top: 100px; /* the height of the header */
+
+}
+
+.nav-link {
+    text-transform: uppercase;
+}

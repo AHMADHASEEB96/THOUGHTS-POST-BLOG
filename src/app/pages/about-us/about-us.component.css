@@ -1,0 +1,5 @@
+section {
+    padding-left: 20px;
+    padding-right: 20px;
+    /* No vertical padding specified here because it is already specified in the global styling and I don'n need to override the global styling in case it changed */
+}
