@@ -1,8 +1,8 @@
-
 .card {
-    /* max-width: 400px; */ /* The card takes the width automatically when displayed with the flex or grid so do not explicitly size it otherwise it will not fit
+    /* max-width: 400px; */
+    /* The card takes the width automatically when displayed with the flex or grid so do not explicitly size it otherwise it will not fit
     it's containers and leaves spaces if the parents are wider, Instead of that you can use min width if you want as long you will make sure it is not big  */
-    min-width: 200px ;
+    min-width: 200px;
     border: none;
     position: relative;
 }
@@ -23,18 +23,22 @@
     -o-transition: all .5s;
     /*The pseudo element is the one that creates the bg that I need it to take the effect,that's why the transition is on the pseudo el not the card itself*/
 }
+
 .card:hover::before {
-   width: 100%;
-   height: 100%;
-   
+    width: 100%;
+    height: 100%;
+
 }
+
 .card:hover {
     color: white;
     cursor: pointer;
 }
+
 .card-body {
     z-index: 1;
 }
+
 .card-img {
     z-index: 1;
 }

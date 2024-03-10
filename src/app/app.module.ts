@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+// Components 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { CategoryNavbarComponent } from './layouts/category-navbar/category-navbar.component';
@@ -16,6 +16,21 @@ import { CommentFormComponent } from './comments/comment-form/comment-form.compo
 import { CommentsListComponent } from './comments/comments-list/comments-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PostCardComponent } from './layouts/post-card/post-card.component';
+// Firebase
+import { AngularFireModule, } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+//Prime NG
+import { SkeletonModule } from 'primeng/skeleton'
+
+//Pipes 
+import { TimestampToDatePipe } from './core/pipes/timestamp-to-date.pipe';
+// Others
+import { environment } from './environments/environment.prod';
+
+
 
 @NgModule({
   declarations: [
@@ -32,11 +47,19 @@ import { PostCardComponent } from './layouts/post-card/post-card.component';
     CommentFormComponent,
     CommentsListComponent,
     AboutUsComponent,
-    PostCardComponent
+    PostCardComponent,
+    TimestampToDatePipe,
+    // Pies 
+    TimestampToDatePipe
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    // primeNg
+    SkeletonModule
   ],
   providers: [
     provideClientHydration()
