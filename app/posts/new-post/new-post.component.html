@@ -2,17 +2,16 @@
     <div class="container">
         <div class="new-post-header text-center">
             <h3 class='my-3'>
-                Add new post
+                {{postFromStatus}} post
             </h3>
 
         </div>
-        <form class="box-shadow p-4" [formGroup]="postForm" (ngSubmit)="submitPostFrom()">
+        <form class="box-shadow p-4" [formGroup]="postForm" (ngSubmit)="submitPostForm()">
             <div class="row">
                 <div class="col-lg-7">
-
                     <!--  -->
                     <div class="form-group mb-2">
-                        <div class="form-label"> Title </div>
+                        <label class="form-label"> Title </label>
                         <input class="form-control" formControlName='postTitle' (input)="onTitleInput($event)"
                             [class.is-invalid]="formControls['postTitle'].invalid && formControls['postTitle'].touched">
                         <!-- post title validation division -->
@@ -68,6 +67,7 @@
                         <select name="" id="" formControlName='postCategory' class="form-control"
                             [ngClass]="{'is-invalid' : formControls['postCategory'].invalid && formControls['postCategory'].touched}"
                             (change)="getOptionData($event)"> <!-- !1 -->
+                            <option value="Choose a Category" selected></option>
                             <option *ngFor="let category of categoriesList" [value]="category.id">
                                 {{category.data.category}} </option>
                         </select>
@@ -104,15 +104,15 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <button class="btn btn-primary m-1" type="submit" [disabled]="postForm.invalid"> Save Post </button>
-                    <button class="btn btn-warning m-1"> Back to posts </button>
+                    <button class="btn btn-primary m-1" type="submit" [disabled]="postForm.invalid"> {{postFromStatus}}
+                        Post </button>
+                    <button class="btn btn-warning m-1" routerLink="/posts"> Back to posts </button>
                 </div>
             </div>
         </form>
 
     </div>
 </section>
-
 
 <!-- 
     - formControlName like other directives is a camalCase name, any error of that kine will prevent the linking between the input and the formControl instance this will make 
